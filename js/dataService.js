@@ -2,7 +2,7 @@
 var app = angular.module('quoteBook');
 
 app.service('dataService', function() {
-	var quotes = [
+	var quotes = [  //this data is "coming from" a server
 		{ text: 'Life isn\'t about getting and having, it\'s about giving and being.', author: 'Kevin Kruse'},
 	    { text: 'Whatever the mind of man can conceive and believe, it can achieve', author: 'Napoleon Hill'},
 	    { text: 'Strive not to be a success, but rather to be of value.', author: 'Albert Einstein'},
@@ -12,17 +12,17 @@ app.service('dataService', function() {
 	    { text: 'What even is a jQuery?', author: 'Tyler S. McGinnis'}
 	];
 
-	this.getQuote = function() {
+	this.getData = function() {
 		return quotes;
 	};
 
-	this.addQuote = function(object) {
+	this.addData = function(object) {
 		if(object.text && object.author) {
 			quotes.push(object)
 		}
 	};
 
-	this.removeQuote = function(object) {
+	this.removeData = function(object) {
 		for(var i = 0; i > quotes.length; i++) {
 			if(object.text === object[i].text) {
 				object.splice(i, 1);
