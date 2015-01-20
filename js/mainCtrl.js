@@ -1,13 +1,19 @@
 'use strict';
 var app = angular.module('quoteBook');
 
-app.controller('mainCtrl', function($scope, quoteService) {
+app.controller('mainCtrl', function($scope, dataService) {
 	//$scope.test = 'testing 1, 2, 3';
 	$scope.getQuote = function() {
-		$scope.quotes = quoteService.getQuote();
+		$scope.quotes = dataService.getQuote();
+	};
+	$scope.addQuote = function() {
+		$scope.quotes = dataService.addQuote();
+	};
+	$scope.removeQuote = function() {
+		$scope.quotes = dataService.removeQuote();
 	};
 
-	$scope.showQuote = quoteService.getQuote();  //this is injecting the service
-	$scope.plusQuote = quoteService.addQuote();
-	$scope.minusQuote = quoteService.removeQuote();
+	$scope.grabQuote = dataService.getQuote();
+	$scope.plusQuote = dataService.addQuote();
+	$scope.minusQuote = dataService.removeQuote();
 });
