@@ -18,14 +18,14 @@ app.service('dataService', function() {
 
 	this.addData = function(object) {
 		if(object.text && object.author) {
-			quotes.push(object)
+			quotes.push(object);
 		}
 	};
 
-	this.removeData = function(object) {
-		for(var i = 0; i > quotes.length; i++) {
-			if(object.text === object[i].text) {
-				object.splice(i, 1);
+	this.removeData = function(str) {
+		for(var i = 0; i < quotes.length; i++) {
+			if(str === quotes[i].text) {
+				quotes.splice(i, 1);
 				i--;
 			}
 		}

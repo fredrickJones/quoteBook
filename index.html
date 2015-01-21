@@ -6,12 +6,16 @@
 </head>
 <body ng-controller="mainCtrl">
 	<div>
-		<input type="text" ng-model="addQuote" />
-		<button ng-click="addQuote()">Submit</button>
+		<input type="text" ng-model="addQuote.author" placeholder="Author"/>
+		<input type="text" ng-model="addQuote.text" placeholder="Quote"/>
+		<button ng-click="add()">Add Quote</button>
+		<button ng-click="remove()">Remove Quote</button>
+		<!-- <button ng-click="search">Filter Author</button> -->
 	</div>
-	<div ng-repeat="quote in quotes">
+	<div ng-repeat="quote in getQuote | filter: addQuote">
   		<h3>{{quote.author}}</h3>
   		<p>{{quote.text}}</p>
+  		<!-- <button ng-click="remove(quote)">Remove Quote</button> -->
   		<hr>
 	</div>
 
